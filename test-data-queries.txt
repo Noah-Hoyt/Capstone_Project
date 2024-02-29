@@ -1,0 +1,13 @@
+// insert SMRT and test companies
+INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('SMRT','smrt.com');
+INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company A','a.com');
+INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company B','b.com');
+INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company C','c.com');
+INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company D','d.com');
+INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company E','e.com');
+
+// insert SMRT admin 
+INSERT INTO 'admin' ('AdminName', 'AdminPassword', 'AdminEmail', 'CompanyID') VALUES ('admin', 'admin', 'admin@smrt.com', '1');
+
+// insert anon innovator
+INSERT INTO 'innovator' ('InnovatorEmail', 'InnovatorName') VALUES ('anon@anon.com', 'anon');

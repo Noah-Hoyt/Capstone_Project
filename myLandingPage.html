@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content= "width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link rel="stylesheet" href="mystyles.css">
+
+
+</head>
+
+<body>
+<header>
+  <nav class="nav"> <a class="logo" href="#"> 
+    <img src="smrtAndLogoCropped.png" alt="logo" style="max-width: 150px; height: 40px; margin-left: 20px; margin-bottom: 10px;"> 
+    </a>
+    <ul>
+      
+    </ul>
+    <div class="login">
+      <form id="loginForm" method="post">
+        <input type="text" id="username" name="mailuid" placeholder="Administrator Login...">
+        <input type="password" id="password" name="pwd" placeholder="Password...">
+        <button type="button" onclick="login()">Login</button>
+      </form>
+      
+    </div>
+  </nav>
+</header>
+
+<body> 
+    <h1> 
+    <div class="banner">
+        Welcome To SMRT Innovation Hub
+    </div>
+    
+    </h1>
+    
+    <h2 style="text-align: center; font-weight: bold; color: #243665;">
+        Please Select your Employer
+    </h2>
+
+    <h3 style="text-align:center">
+        <select id="employer" name="employer">
+            <option value="companyA">Company A</option>
+            <option value="companyB">SMRT</option>
+            <option value="companyC">Walmart</option>
+        </select>
+        <button onclick="goToCompanyPage()">Go to</button>
+    </h3>
+
+    <h4 id="companyPageLink">
+    
+    </h4>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // You may need to handle login validation here, such as sending a request to a server
+            
+            // For demonstration purposes, let's assume the login is successful
+            // Redirect the user to the admin page
+            window.location.href = "adminPage.html";
+        }
+
+        function goToCompanyPage() {
+            var selectElement = document.getElementById("employer");
+            var selectedCompany = selectElement.value;
+            var companyPageLink = document.getElementById("companyPageLink");
+
+            
+            var url = ""; 
+
+            switch (selectedCompany) {
+                case "companyA":
+                    url += "index.html"; // Set the URL for Company A's page
+                    break;
+                case "companyB":
+                    url += "https://www.smrtinc.com"; // Set the URL for Company B's page
+                    break;
+                case "companyC":
+                    url += "https://www.walmart.com"; // Set the URL for Company C's page
+                    break;
+                default:
+                    // Default action if no company is selected
+                    companyPageLink.textContent = "Please select a company";
+                    return;
+            }
+
+            // Redirect the user to the selected company's page
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
