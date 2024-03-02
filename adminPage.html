@@ -48,11 +48,35 @@
 	
   </ul>
 </div>
-
-
-<div class="grid-container" id="gridContainer">
-    <!-- Cards will be dynamically added here -->
+<!-- <div class="grid-container" id="gridContainer">
   </div>
+</div> -->
+
+<?php
+// Database connection parameters
+$server_name="localhost";
+$username="root";
+$password="";
+$database_name ="capstone";
+
+try {
+  // Create connection
+  $conn = new PDO("mysql:host=$server_name; dbname=$database_name", $username, $password);
+
+  $query = "SELECT * FROM ideas ORDER BY InnovatorID";
+  $res = $conn->prepare()
+
+} catch(PDOExecption $e) {
+  echo "Connection Failed: " . $e->getmessage();
+  die();
+}
+catch (Exception $ex) {
+  echo "Failed: " . $ex->getmessage();
+  die();
+}
+?>
+<div>
+  some text
 </div>
 	
     
