@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Engine</title>
+    <link rel="stylesheet" href="../assets/css/indexStyles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	
+</head>
+
+	<header style="padding: 20px 0;">
+		<a href="index.html">
+		<img src="../assets/images/smrtAndLogoCropped.png" alt="My Website Logo" class="logo" style="width: auto; height: 60px; margin-left: 20px; margin-bottom: 10px;">
+		</a>	       
+	</header>
+
+<body>
+    <main style="padding: 20px; text-align: center;">		
+        <div id="about">
+            <h2>Lets post your ideas</h2>            
+        </div>
+		
+			<section id="services">
+				<content>
+					<h2>Our Services</h2>
+					<div class="service">
+						<h3>Employee Suggestion Box</h3>
+						<form id="suggestion-form" action="get_form_info.php" method="post" >
+							Name:
+							<input name="name" type="text" id="first-name" list="name-options" placeholder="Name" required><br>
+							<datalist id="name-options">
+								<option value="Anonymous"></option>
+							</datalist>
+							Email:
+							<input name="email" type="email" id="email" list="email-options" placeholder="Email" required><br>
+							<datalist id="email-options">
+								<option value="Anonymous"></option>
+							</datalist>
+							Company: 
+							<input name="company" type="text" id="company" list="company-options" placeholder="Pick Your Company" required><br>
+							<datalist id="company-options">
+								<option value="Company A"></option>
+								<option value="Company B"></option>
+								<option value="Company C"></option>
+								<option value="Company D"></option>
+								<option value="Company E"></option>
+								
+							</datalist>
+							<textarea name="idea" id="review" placeholder="Review" rows="5" required></textarea><br>
+							<button name="submit" type="submit">Submit</button>
+						</form>
+					</div>
+					<div class="service">
+						<h3>Service 2</h3>
+						<p>Description of Service 2 goes here.</p>
+					</div>
+					<div class="service">
+						<h3>Service 3</h3>
+						<p>Description of Service 3 goes here.</p>
+					</div>
+				</content>
+			</section>
+
+			<nav>
+				<div class="navigation">
+					<button onclick="previousService()">Previous</button>
+					<button onclick="nextService()">Next</button>
+				</div>
+			</nav>
+		
+	
+
+        
+    </main>
+
+    <script>
+        let currentIndex = 0;
+        const services = document.querySelectorAll('.service');
+
+        function showService(index) {
+            services.forEach((service, i) => {
+                if (i === index) {
+                    service.style.display = 'block';
+                } else {
+                    service.style.display = 'none';
+                }
+            });
+        }
+
+        function nextService() {
+            currentIndex = (currentIndex + 1) % services.length;
+            showService(currentIndex);
+        }
+
+        function previousService() {
+            currentIndex = (currentIndex - 1 + services.length) % services.length;
+            showService(currentIndex);
+        }
+
+        // Show the first service initially
+        showService(currentIndex);
+    </script>
+</body>
+</html>
