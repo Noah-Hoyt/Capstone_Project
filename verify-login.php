@@ -123,7 +123,7 @@ catch (Exception $ex) {
   </ul>
 </div>
 
-<div id="content">
+<form action="submissionDisplay.php" method ="post" id="content">
   <ul>
   <!-- <?php while ($row = $ideas->fetch()) { ?>
     <li> 
@@ -132,7 +132,7 @@ catch (Exception $ex) {
     <br>
     <?php } ?> -->
   </ul>
-</div>
+  </form>
 	
 <script>
   const display_area = document.getElementById("content");
@@ -150,8 +150,12 @@ catch (Exception $ex) {
     display_area.innerHTML = "";
     let supervisors = <?php echo json_encode($admin_list); ?>;
     for (let s of supervisors) {
-      console.log(s);
-      display_area.innerHTML += `<div class="row_display">"AdminID: ${s["AdminID"]}\tUsername: ${s["AdminName"]}\tPassword: ${s["AdminPassword"]}\tEmail: ${s["AdminEmail"]}\tCompanyID: ${s["CompanyID"]}</div>\n`
+      // console.log(s);
+      // `<div class="row_display">"\t\t\t\t</div>\n`
+      // href="submissionDisplay.html?AdminID=${s["AdminID"]}&Username=${s["AdminName"]}&Password=${s["AdminPassword"]}&Email=${s["AdminEmail"]}&Company=${s["CompanyID"]}"
+      display_area.innerHTML += `<div class="row_display">
+      <p name="AdminID">AdminID: ${s["AdminID"]}</p>\t<p>Username: ${s["AdminName"]}</p>\t<p>Password: ${s["AdminPassword"]}</p>\t<p>Email: ${s["AdminEmail"]}</p><p>CompanyID: ${s["CompanyID"]}</p>
+      <button name="Admin" type="submit" onclick=lamda:appendURL("${s["AdminID"]}")>View</button></div>\n`
     }
   }
 
@@ -162,10 +166,14 @@ catch (Exception $ex) {
     let subs = <?php echo json_encode($idea_list); ?>;
     for (let s of subs) {
       // console.log(s);
-      display_area.innerHTML += `<div class="row_display"><a href="submissionDisplay.html?IdeaID=${s["IdeaID"]}&IdeaSub=${s["IdeaSubmission"]}&InnovID=${s["InnovatorID"]}&CompID=${s["CompanyID"]}">
-      <p>IdeaID: ${s["IdeaID"]}</p>\t<p>Idea: ${s["IdeaSubmission"]}</p>\t<p>InnovID: ${s["InnovatorID"]}</p>\t<p>CompID: ${s["CompanyID"]}</p>
-      </a></div>\n`
+      display_area.innerHTML += `<div class="row_display">
+      <p name="IdeaID">IdeaID: ${s["IdeaID"]}</p>\t<p>Idea: ${s["IdeaSubmission"]}</p>\t<p>InnovID: ${s["InnovatorID"]}</p>\t<p>CompID: ${s["CompanyID"]}</p>
+      <button name="Idea" type="submit" onclick=lamda:appendURL("${s["IdeaID"]}")>View</button></div>\n`
     }
+  }
+
+  function appendURL(id) {
+    display_area.action += "?id=" + id;
   }
   
   // display buttons to different views if user is SMRT admin

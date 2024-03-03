@@ -25,8 +25,10 @@
     <!-- TODO: Figure out how to display this better -->
     <!-- IdeaID=${s["IdeaID"]}&IdeaSub=${s["IdeaSubmission"]}&InnovID=${s["InnovatorID"]}&CompID=${s["CompanyID"]} -->
     <script>
-        url = window.location.search.match(/[a-zA-Z0-9]+/g);                                                // separate text by spaces; remove non alpha-num characters
-        document.getElementById("display").innerHTML = url[0] + ": " + url[1] + " " + url[2] + ": " + url[3] + " " + url[4].slice(2) + " " + url[5] + ": " + url[6] + " " + url[7] + ": " + url[8];
+        // url = window.location.search.match(/[a-zA-Z0-9]+/g);                                                // separate text by spaces; remove non alpha-num characters
+        var url = window.location.search;
+        var tmp =JSON.parse('{"' + decodeURI(url).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+        document.getElementById("display").innerHTML = u;
     </script>
     
 </body>
