@@ -1,8 +1,8 @@
 CREATE TABLE Innovator
 (
   InnovatorID INT NOT NULL AUTO_INCREMENT,
+  InnovatorName VARCHAR(30) NOT NULL,  
   InnovatorEmail VARCHAR(30) NOT NULL,
-  InnovatorName VARCHAR(30) NOT NULL,
   PRIMARY KEY (InnovatorID)
 );
 
@@ -17,8 +17,8 @@ CREATE TABLE IH_Support
 
 CREATE TABLE Company
 (
+  CompanyID INT NOT NULL AUTO_INCREMENT,  
   CompanyName VARCHAR(30) NOT NULL,
-  CompanyID INT NOT NULL AUTO_INCREMENT,
   CompanyURL VARCHAR(30) NOT NULL,
   PRIMARY KEY (CompanyID)
 );
@@ -38,6 +38,7 @@ CREATE TABLE Idea
 (
   IdeaID INT NOT NULL AUTO_INCREMENT,
   IdeaSubmission VARCHAR(400) NOT NULL,
+  IdeaDT DATETIME NOT NULL,
   InnovatorID INT NOT NULL,
   CompanyID INT NOT NULL,
   PRIMARY KEY (IdeaID),
