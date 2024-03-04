@@ -6,8 +6,8 @@ $sqlInnovator = "
 CREATE TABLE IF NOT EXISTS Innovator
 (
   InnovatorID INT NOT NULL AUTO_INCREMENT,
-  InnovatorEmail VARCHAR(30) NOT NULL,
   InnovatorName VARCHAR(30) NOT NULL,
+  InnovatorEmail VARCHAR(30) NOT NULL, 
   PRIMARY KEY (InnovatorID)
 );
 ";
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS IH_Support
 $sqlCompany = "
 CREATE TABLE IF NOT EXISTS Company
 (
+  CompanyID INT NOT NULL AUTO_INCREMENT,  
   CompanyName VARCHAR(30) NOT NULL,
-  CompanyID INT NOT NULL AUTO_INCREMENT,
   CompanyURL VARCHAR(30) NOT NULL,
   PRIMARY KEY (CompanyID)
 );
@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS Idea
 (
   IdeaID INT NOT NULL AUTO_INCREMENT,
   IdeaSubmission VARCHAR(400) NOT NULL,
+  IdeaDT DATETIME NOT NULL,
   InnovatorID INT NOT NULL,
   CompanyID INT NOT NULL,
   PRIMARY KEY (IdeaID),

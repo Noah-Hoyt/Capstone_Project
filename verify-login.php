@@ -167,7 +167,7 @@ catch (Exception $ex) {
     for (let s of subs) {
       // console.log(s);
       display_area.innerHTML += `<div class="row_display">
-      <p name="IdeaID">IdeaID: ${s["IdeaID"]}</p>\t<p>Idea: ${s["IdeaSubmission"]}</p>\t<p>InnovID: ${s["InnovatorID"]}</p>\t<p>CompID: ${s["CompanyID"]}</p>
+      <p name="IdeaID">IdeaID: ${s["IdeaID"]}</p>\t<p>Idea: ${s["IdeaSubmission"]}</p>\t<p>Idea Date: ${s["IdeaDT"]}</p>\t<p>InnovID: ${s["InnovatorID"]}</p>\t<p>CompID: ${s["CompanyID"]}</p>
       <button name="Idea" type="submit" onclick=lamda:appendURL("${s["IdeaID"]}")>View</button></div>\n`
     }
   }

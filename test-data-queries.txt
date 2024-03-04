@@ -7,7 +7,10 @@ INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company D','d.com');
 INSERT INTO `company`(`CompanyName`, `CompanyURL`) VALUES ('Company E','e.com');
 
 // insert SMRT admin 
-INSERT INTO 'admin' ('AdminName', 'AdminPassword', 'AdminEmail', 'CompanyID') VALUES ('admin', 'admin', 'admin@smrt.com', '1');
+INSERT INTO admin (AdminName, AdminPassword, AdminEmail, CompanyID) VALUES ('admin', 'admin', 'admin@smrt.com', '1');
 
 // insert anon innovator
-INSERT INTO 'innovator' ('InnovatorEmail', 'InnovatorName') VALUES ('anon@anon.com', 'anon');
+INSERT INTO innovator (InnovatorEmail, InnovatorName) VALUES ('anon@anon.com', 'anon');
+// Note that currently this anonymous entry and the data given from the anonymous option in the submission page
+// is different in name and email.
+// Therefore we need to decide on what form "anonymous" will take in both this query and the submission page
