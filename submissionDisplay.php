@@ -54,7 +54,7 @@ catch (Exception $ex) {
     
 
     <header>
-        <nav class="topNav"> <a class="logo" href="#"> 
+        <nav class="topNav"> <a class="logo" href="index.html"> 
           <img src="assets/logo/smrtAndLogoCropped.png" alt="logo" style="max-width: 150px; height: 40px; margin-left: 20px; margin-bottom: 10px;"> 
               </a>
           <div class="logout">
@@ -66,9 +66,14 @@ catch (Exception $ex) {
     <div id="display">
 
     </div>
+
+    <button type="button" onclick=prevPage() >Return to Queries</button>
     <!-- TODO: Figure out how to display this better -->
     <!-- IdeaID=${s["IdeaID"]}&IdeaSub=${s["IdeaSubmission"]}&InnovID=${s["InnovatorID"]}&CompID=${s["CompanyID"]} -->
     <script>
+        function prevPage() {
+            history.go(-1);
+        }
         // url = window.location.search.match(/[a-zA-Z0-9]+/g);                                                // separate text by spaces; remove non alpha-num characters
         let result = <?php echo json_encode($res_list); ?>;
         let adminTable = result[0]["AdminID"];
@@ -83,8 +88,11 @@ catch (Exception $ex) {
             document.getElementById("display").innerHTML = "IdeaID: " + result[0]["IdeaID"] +
             "<br/>" + "Submission: " + result[0]["IdeaSubmission"] +
             "<br/>" + "User: " + result[0]["InnovatorID"] +
-            "<br/>" + "Company: " + result[0]["CompanyID"];
+            "<br/>" + "Company: " + result[0]["CompanyID"] +
+            "<br/>" + "Date/Time Submitted: " + result[0]["IdeaDT"];
         }
+
+        
     </script>
     
 </body>

@@ -97,7 +97,7 @@ catch (Exception $ex) {
 
 <body>
 <header>
-  <nav class="topNav"> <a class="logo" href="#"> 
+  <nav class="topNav"> <a class="logo" href="index.html"> 
     <img src="assets/logo/smrtAndLogoCropped.png" alt="logo" style="max-width: 150px; height: 40px; margin-left: 20px; margin-bottom: 10px;"> 
 		</a>
     <div class="logout">
@@ -123,16 +123,7 @@ catch (Exception $ex) {
   </ul>
 </div>
 
-<form action="submissionDisplay.php" method ="post" id="content">
-  <ul>
-  <!-- <?php while ($row = $ideas->fetch()) { ?>
-    <li> 
-      <div>Row <?php echo "ID: " . $row['IdeaID'] ." IDEA: " . $row['IdeaSubmission'].  " COMPANY: " . $row['CompanyID'] . " USER: " . $row['InnovatorID']; ?></div>
-    </li>
-    <br>
-    <?php } ?> -->
-  </ul>
-  </form>
+<form action="submissionDisplay.php" method ="post" id="content"></form>
 	
 <script>
   const display_area = document.getElementById("content");
@@ -167,7 +158,7 @@ catch (Exception $ex) {
     for (let s of subs) {
       // console.log(s);
       display_area.innerHTML += `<div class="row_display">
-      <p name="IdeaID">IdeaID: ${s["IdeaID"]}</p>\t<p>Idea: ${s["IdeaSubmission"]}</p>\t<p>Idea Date: ${s["IdeaDT"]}</p>\t<p>InnovID: ${s["InnovatorID"]}</p>\t<p>CompID: ${s["CompanyID"]}</p>
+      <p name="IdeaID">IdeaID: ${s["IdeaID"]}</p>\t<p>InnovID: ${s["InnovatorID"]}</p>\t<p>CompID: ${s["CompanyID"]}</p>\t<p>Idea Date: ${s["IdeaDT"]}</p>
       <button name="Idea" type="submit" onclick=lamda:appendURL("${s["IdeaID"]}")>View</button></div>\n`
     }
   }
@@ -179,7 +170,7 @@ catch (Exception $ex) {
   // display buttons to different views if user is SMRT admin
   let tmp = <?php echo $comp_id?>;
   if (parseInt(tmp) == 2) {
-    console.log("here");
+    // console.log("here");
     document.getElementById("accounts").style.display = "block";
     document.getElementById("ideas").style.display = "block";
   } 
