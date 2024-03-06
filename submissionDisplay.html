@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adminPageStyles.css">
+    <title>Display Submission</title>
+</head>
+<body>
+    
+
+    <header>
+        <nav class="topNav"> <a class="logo" href="#"> 
+          <img src="assets/logo/smrtAndLogoCropped.png" alt="logo" style="max-width: 150px; height: 40px; margin-left: 20px; margin-bottom: 10px;"> 
+              </a>
+          <div class="logout">
+              <button type="button" onclick="redirectToIndexPage()">Logout</button>
+          </div>
+        </nav>
+    </header>
+
+    <div id="display">
+
+    </div>
+    <!-- TODO: Figure out how to display this better -->
+    <!-- IdeaID=${s["IdeaID"]}&IdeaSub=${s["IdeaSubmission"]}&InnovID=${s["InnovatorID"]}&CompID=${s["CompanyID"]} -->
+    <script>
+        // url = window.location.search.match(/[a-zA-Z0-9]+/g);                                                // separate text by spaces; remove non alpha-num characters
+        var url = window.location.search;
+        var tmp =JSON.parse('{"' + decodeURI(url).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+        document.getElementById("display").innerHTML = u;
+    </script>
+    
+</body>
+</html>

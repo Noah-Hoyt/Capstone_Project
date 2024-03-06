@@ -46,9 +46,6 @@ body {
 	background-color: #000000; 
 }
 
-
-
-
 .sidebar {
 	width: 150px; 
 	height: 64%; 
@@ -70,7 +67,7 @@ body {
 }
 
 .sidebar ul li a {
-  display: block;
+  display: none;
   text-decoration: none;
   color: white; 
   padding: 8px 16px;
@@ -79,6 +76,10 @@ body {
 
 .sidebar ul li a:hover {
   background-color: #000000; 
+}
+
+#ideas, #accounts {
+  display: none;
 }
 
 .grid-container {

@@ -49,8 +49,11 @@ try {
             $company_id = $company_query->fetchColumn();
         }
         
-        $submit = "INSERT INTO idea (IdeaSubmission, InnovatorID, CompanyID)
-        VALUES (:idea, :innovator_id, :company_id)";
+        // Note that IdeaDT gets value of the date and time of when user submits idea formatted into UTC timezone
+        // and CST is 6 hours behind UTC
+        // TODO : make function or SQL query to convert IdeaDT entry data into CST timezone when displayed on page
+        $submit = "INSERT INTO idea (IdeaSubmission, IdeaDT, InnovatorID, CompanyID)
+        VALUES (:idea, UTC_TIMESTAMP(), :innovator_id, :company_id)";
 
         $stmt = $conn->prepare($submit);
         $stmt->bindParam(':idea', $idea);
@@ -70,3 +73,17 @@ try {
         echo "Failed: " . $ex->getmessage();
         die();
 }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br/>
+    <a href="index.html">RETURN TO HOMEPAGE</a>
+</body>
+</html>

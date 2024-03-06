@@ -1,0 +1,52 @@
+-- Note: This file is for laying groundwork on possbile future MySQL queries we may need, and some of these may already be in use in one shape or form
+-- This is also not a complete list of things and grow as time goes on
+
+-- query for getting a test ih support entry
+SELECT * FROM ih_support
+WHERE IHSID = 1;
+
+-- query for getting a test admin entry
+SELECT * FROM admin
+WHERE AdminID = 1;
+
+-- query for getting a test company entry
+SELECT * FROM company
+WHERE CompanyID = 1;
+
+-- query for getting a test idea entry
+SELECT * FROM idea
+WHERE IdeaID = 1;
+
+-- query for getting a test innovator entry
+SELECT * FROM innovator
+WHERE InnovatorID = 1;
+
+-- If wanting all data from all entries in a table, then remove the WHERE clause
+
+
+-- query for  inserting a test ih support entry
+INSERT INTO ih_Support (IHSName, IHSEmail, IHSPassword)
+VALUES ('Test Support', 'TS@innovation.com', 'password123');
+
+-- query for updating a IH Support entry's fields
+UPDATE ih_support
+SET IHSName = 'Giga Support', IHSEmail = 'GS@innovation.com', IHSPassword = '123password'
+WHERE IHSID = 1;
+
+-- could be split apart into various queries for each entry's field & would like a way to get data from user on which IH Support entry to put into IHSID field
+
+
+-- query for updating a test admin entry
+UPDATE admin
+SET AdminName = 'Giga Admin', AdminPassword = 'gigaadmin123', AdminEmail = 'gigaadmin@smrt.com'
+WHERE AdminIH = 1;
+
+-- query for updating a test company entry
+UPDATE company
+SET CompanyName = 'Tomorrow Corporation', CompanyURL = 'TomorrowCorp.com'
+WHERE CompanyID = 2;
+
+-- query for updating a test innovator entry
+UPDATE innovator
+SET InnovatorName = 'John SQL', InnovatorEmail = 'JSQL@smrt.com'
+WHERE InnovatorID = 2;
