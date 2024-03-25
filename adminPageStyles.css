@@ -22,29 +22,68 @@ body {
 }
 
 .topNav {
-    color: black;
-    padding-top: 1em;
+            color: var(--main-color);
+            padding-top: 1em;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end; 
+            background-color: var(--main-background);
+	    margin-left: auto;
+        }
+
+        .topNav a {
+            color: white; /* Set the color for navigation links */
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+	    margin-right: 10px;
+        }
+
+        .topNav a:hover {
+            background-color: #000000; /* Change the hover background color */
+        }
+	.topnav a:first-child {
+	  margin-left: auto;
+	}
+
+.topNav button {
+    background-color: #243665;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.topNav button:hover {
+    background-color: #000000;
+}
+
+
+.logout{
+    margin-left:auto;
     display:flex;
-    flex-wrap:wrap;
-    align-items:center;
+    margin-right: 10px;}
+
+
+
+.logout button {
+    background: var(--main-background);
+    color: var(--main-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
-.logout{margin-left:auto;display:flex; margin-right: 10px;}
-
-
-
-.logout button{
-	background:#243665;
-    color:#fff;
-    padding:5px 10px;
-    border-radius:10px;
-    border:none;
-	transition: background-color 0.3s ease;
+.logout button:hover {
+    background-color: var(--hover-color);
 }
 
-.logout button:hover{
-	background-color: #000000; 
-}
+
+
 
 .sidebar {
 	width: 150px; 
@@ -52,8 +91,15 @@ body {
 	background-color: #243665; 
 	position: fixed;
 	top: 36%; 
-	left: 0;
+	left: -150px;
 	padding-top: 20px; 
+	transition: left 0.3s ease;  /* smooth animation */ 
+}
+
+/* adjust content */
+.sidebar-active .content {
+    margin-left: 150px;
+    transition: margin-left 0.3s ease;
 }
 
 .sidebar ul {
@@ -67,7 +113,7 @@ body {
 }
 
 .sidebar ul li a {
-  display: none;
+  display: block;
   text-decoration: none;
   color: white; 
   padding: 8px 16px;
@@ -76,10 +122,6 @@ body {
 
 .sidebar ul li a:hover {
   background-color: #000000; 
-}
-
-#ideas, #accounts {
-  display: none;
 }
 
 .grid-container {
@@ -94,3 +136,70 @@ body {
   padding: 20px;
   border-radius: 8px;
 }
+
+body.sidebar-active .sidebar {
+    width: 250px;
+}
+
+.content {
+    transition: margin-left 0.3s ease;
+}
+
+/* The styles for the animated sidebar */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+ body.sidebar-active .sidebar {
+            width: 250px;
+        }
+
+        .content {
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Styling for the open/close button */
+        .open-btn {
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
