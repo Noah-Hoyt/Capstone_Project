@@ -89,7 +89,7 @@ catch (Exception $ex) {
             "<br/>" + "Submission: " + result[0]["IdeaSubmission"] +
             "<br/>" + "User: " + result[0]["InnovatorID"] +
             "<br/>" + "Company: " + result[0]["CompanyID"] +
-            "<br/>" + "Date/Time Submitted: " + result[0]["IdeaID"];
+            "<br/>" + "Date/Time Submitted: " + result[0]["IdeaDT"];
         }
 
         
