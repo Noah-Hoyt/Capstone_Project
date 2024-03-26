@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 // Database connection parameters
 $server_name="localhost";
 $username="root";
@@ -32,10 +32,21 @@ try {
                 die();
             } else {
                 // echo "Admin Found!"
+                
+                $_SESSION['username'] = $user;
+                $_SESSION['CompanyID'] = (int)$result->fetchColumn();
+                $timestamp = time();
+                $currentDate = gmdate('Y-m-d', $timestamp);
+                $_SESSION['timeLog'] = $currentDate; 
+
 
                 //Get ideas
+                
                 $args[] = "SELECT * FROM idea ";                        // array to hold query
-                $comp_id = (int)$result->fetchColumn();                 // company id value (int)
+                $comp_id = (int)$result->fetchColumn();                  // company id value (int)
+                //echo $_SESSION['username'];
+                //echo $_SESSION['CompanyID'];
+                //echo $_SESSION['timeLog'];  
                 
                 // if not SMRT, search for company id
                 if ($comp_id != 2) {
@@ -130,6 +141,7 @@ catch (Exception $ex) {
   function redirectToIndexPage() {
     // Redirect to the index page
     window.location.href = "index.html";
+    session_destroy();
   }
   
   function logOut() {
