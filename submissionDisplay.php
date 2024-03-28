@@ -6,6 +6,7 @@
     $table = "";
     $id = $_GET["id"];
     $res_list = [];
+    session_start();
     try {
     $conn = new PDO("mysql:host=$server_name; dbname=$database_name", $username, $password);
     $args[] = "SELECT * FROM ";
@@ -58,6 +59,7 @@ catch (Exception $ex) {
           <img src="assets/logo/smrtAndLogoCropped.png" alt="logo" style="max-width: 150px; height: 40px; margin-left: 20px; margin-bottom: 10px;"> 
               </a>
           <div class="logout">
+            
               <button type="button" onclick="redirectToIndexPage()">Logout</button>
           </div>
         </nav>
@@ -67,7 +69,11 @@ catch (Exception $ex) {
 
     </div>
 
-    <button type="button" onclick=prevPage() >Return to Queries</button>
+    <form action="adminPage.php">
+         <button type="submit">Return to Queries</button>
+    </form>
+
+    
     <!-- TODO: Figure out how to display this better -->
     <!-- IdeaID=${s["IdeaID"]}&IdeaSub=${s["IdeaSubmission"]}&InnovID=${s["InnovatorID"]}&CompID=${s["CompanyID"]} -->
     <script>
